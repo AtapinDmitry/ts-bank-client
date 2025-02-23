@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  bank-client-api:
+    image: bank-client-api
+    env_file:
+      - ./docker/api/.env
+    volumes:
+      - ./:/app:cached
+    ports:
+      - 3005:3005
+    working_dir: /application/build
+    command: node main.js
+
+volumes:
+  pg_data:

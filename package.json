@@ -1,0 +1,40 @@
+{
+    "name": "bank-client",
+    "version": "0.0.1",
+    "description": "",
+    "author": "Dmitry Atapin",
+    "license": "UNLICENSED",
+    "scripts": {
+        "start": "export $(grep -v '^#' .env | xargs) && npm run start --prefix src/packages/application/api",
+        "start:dev": "export $(grep -v '^#' .env | xargs) && npm run start:dev --prefix src/packages/application/api",
+        "build": "npm run build --prefix src/packages/application/api",
+        "reset": "npm run reset --prefix src/packages/application/api",
+        "api:docker:image:build": "docker build -t bank-client-api -f ./docker/api/Dockerfile .",
+        "api:docker:image:update": "docker pull bank-client-api",
+        "api:docker:image:remove": "docker rmi -f bank-client-api",
+        "api:docker:container:run": "docker-compose up -d bank-client-api",
+        "api:docker:container:start": "docker start bank-client-api",
+        "api:docker:container:stop": "docker stop bank-client-api",
+        "api:docker:container:remove": "docker rm bank-client-api",
+        "submodules:update": "git submodule update --init"
+    },
+    "dependencies": {
+        "@project/module": "file:./src/packages/module",
+        "@ts-core/backend-nestjs": "~9.0.4",
+        "@ts-core/common": "~3.0.34",
+        "@ts-core/socket-server": "~3.0.15",
+        "@ts-core/eth": "^3.0.4",
+        "@ts-core/language": "~3.0.14",
+        "@ts-core/oauth": "~3.0.17",
+        "@nestjs/platform-express": "^9.4.2"
+    },
+    "devDependencies": {
+        "@types/body-parser": "^1.19.5",
+        "@types/compression": "^1.7.5",
+        "prettier": "^2.5.1",
+        "ts-node": "^10.7.0",
+        "ts-node-dev": "^1.1.8",
+        "tsconfig-paths": "^3.13.0",
+        "typescript": "^4.6.2"
+    }
+}
