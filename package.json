@@ -19,19 +19,21 @@
         "submodules:update": "git submodule update --init"
     },
     "dependencies": {
+        "@nestjs/platform-express": "^9.4.2",
+        "@nestjs/swagger": "^6.3.0",
         "@project/module": "file:./src/packages/module",
         "@ts-core/backend-nestjs": "~9.0.4",
         "@ts-core/common": "~3.0.34",
-        "@ts-core/socket-server": "~3.0.15",
         "@ts-core/eth": "^3.0.4",
         "@ts-core/language": "~3.0.14",
         "@ts-core/oauth": "~3.0.17",
-        "@nestjs/platform-express": "^9.4.2"
+        "@ts-core/socket-server": "~3.0.15"
     },
     "devDependencies": {
         "@types/body-parser": "^1.19.5",
         "@types/compression": "^1.7.5",
         "prettier": "^2.5.1",
+        "swagger": "^0.7.5",
         "ts-node": "^10.7.0",
         "ts-node-dev": "^1.1.8",
         "tsconfig-paths": "^3.13.0",

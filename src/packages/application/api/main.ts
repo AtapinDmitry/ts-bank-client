@@ -13,6 +13,9 @@ async function main(): Promise<void> {
     application.useLogger(logger);
 
     logger.log('Application started');
+
+    await application.listen(settings.webPort);
+    logger.log(`Listening "${settings.webPort}" port`);
 }
 
 main();

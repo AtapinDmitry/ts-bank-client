@@ -5,6 +5,7 @@ import { AbstractService } from '@project/module/core/service';
 import { Logger, Transport } from '@ts-core/common';
 import { InitializeService } from './service';
 import { TransportModule, TransportType } from '@ts-core/backend-nestjs';
+import { UserModule } from '@project/module/user/user.module';
 
 
 
@@ -21,6 +22,7 @@ export class AppModule extends AbstractService implements OnApplicationBootstrap
             imports: [
                 LoggerModule.forRoot(settings),
                 TransportModule.forRoot({ type: TransportType.LOCAL }),
+                UserModule
             ],
             controllers: [
             ],
